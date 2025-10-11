@@ -1,21 +1,21 @@
-From c569026d1d7e0ade619f1ef5bd1bb5451522225a Mon Sep 17 00:00:00 2001
+From 9fc7b1722b50c7acc0c64a0483c8e46d2d548cb7 Mon Sep 17 00:00:00 2001
 From: Ruchit <risenid@duck.com>
-Date: Sat, 19 Apr 2025 00:37:20 +0300
+Date: Sat, 11 Oct 2025 15:39:03 +0800
 Subject: [PATCH] Nuke SSRM Warning dialog
 
-Signed-off-by: utkustnr <utkuustuner@proton.me>
+Signed-off-by: Samuel Pascua <pascua.samuel.14@gmail.com>
 ---
- smali/S1/P.smali | 50 +-----------------------------------------------
- 1 file changed, 1 insertion(+), 49 deletions(-)
+ smali/U1/T.smali | 49 +-----------------------------------------------
+ 1 file changed, 1 insertion(+), 48 deletions(-)
 
-diff --git a/smali/S1/P.smali b/smali/S1/P.smali
-index 533e0de..832daa8 100644
---- a/smali/S1/P.smali
-+++ b/smali/S1/P.smali
-@@ -77,56 +77,8 @@
+diff --git a/smali/U1/T.smali b/smali/U1/T.smali
+index e53d8a2..045f141 100644
+--- a/smali/U1/T.smali
++++ b/smali/U1/T.smali
+@@ -131,54 +131,7 @@
  .end method
  
- .method public static B(Landroid/content/Context;Ljava/lang/String;)V
+ .method public static D(Landroid/content/Context;Ljava/lang/String;)V
 -    .locals 1
 -
 -    if-eqz p0, :cond_0
@@ -34,9 +34,9 @@ index 533e0de..832daa8 100644
 -
 -    invoke-virtual {v0, p1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 -
--    new-instance p0, LS1/L;
+-    new-instance p0, LU1/O;
 -
--    invoke-direct {p0}, LS1/L;-><init>()V
+-    invoke-direct {p0}, LU1/O;-><init>()V
 -
 -    const-string p1, "I got it"
 -
@@ -56,20 +56,18 @@ index 533e0de..832daa8 100644
 -
 -    invoke-virtual {p0}, Landroid/app/AlertDialog;->show()V
 -
--    goto :goto_0
+-    return-void
 -
 -    :cond_0
--    sget-object p0, LS1/P;->a:Ljava/lang/String;
+-    sget-object p0, LU1/T;->a:Ljava/lang/String;
 -
 -    const-string p1, "showAlert - context is null"
 -
--    invoke-static {p0, p1}, LS1/B;->b(Ljava/lang/String;Ljava/lang/String;)V
+-    invoke-static {p0, p1}, LU1/C;->b(Ljava/lang/String;Ljava/lang/String;)V
 +    .locals 0
  
--    :goto_0
      return-void
  .end method
- 
 -- 
-2.49.0
+2.50.1
 
