@@ -197,6 +197,22 @@ fi
 #    APPLY_PATCH "system" "system/framework/services.jar" "$SRC_DIR/unica/patches/product_feature/face/services.jar/0001-Fallback-to-Face-HIDL-2.0.patch"
 #fi
 
+if [[ "$SOURCE_MDNIE_SUPPORTED_MODES" != "$TARGET_MDNIE_SUPPORTED_MODES" ]] || \
+    [[ "$SOURCE_MDNIE_WEAKNESS_SOLUTION_FUNCTION" != "$TARGET_MDNIE_WEAKNESS_SOLUTION_FUNCTION" ]]; then
+    LOG_STEP_IN "- Applying mDNIe features patches"
+
+    DECODE_APK "system" "system/framework/services.jar"
+
+    FTP="
+    system/framework/services.jar/smali_classes2/com/samsung/android/hardware/display/SemMdnieManagerService.smali
+    "
+    for f in $FTP; do
+        sed -i "s/\"$SOURCE_MDNIE_SUPPORTED_MODES\"/\"$TARGET_MDNIE_SUPPORTED_MODES\"/g" "$APKTOOL_DIR/$f"
+        sed -i "s/\"$SOURCE_MDNIE_WEAKNESS_SOLUTION_FUNCTION\"/\"$TARGET_MDNIE_WEAKNESS_SOLUTION_FUNCTION\"/g" "$APKTOOL_DIR/$f"
+    done
+    LOG_STEP_OUT
+fi
+
 #if $SOURCE_HAS_HW_MDNIE; then
 #    if ! $TARGET_HAS_HW_MDNIE; then
 #        echo "Applying HW mDNIe patches"
