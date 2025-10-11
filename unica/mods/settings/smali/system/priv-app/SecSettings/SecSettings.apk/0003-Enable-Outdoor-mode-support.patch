@@ -1,16 +1,15 @@
-From 53ac6dd5e3e1b2c2f0aff33244956b8ec01c8947 Mon Sep 17 00:00:00 2001
+From 69a01d7b51bcdbae554b7df2b8d3a2607d51e80d Mon Sep 17 00:00:00 2001
 From: ExtremeXT <75576145+ExtremeXT@users.noreply.github.com>
-Date: Sat, 12 Apr 2025 21:36:49 +0300
+Date: Sat, 11 Oct 2025 10:40:15 +0800
 Subject: [PATCH] Enable Outdoor mode support
 
-Signed-off-by: ExtremeXT <75576145+ExtremeXT@users.noreply.github.com>
-Signed-off-by: utkustnr <utkuustuner@proton.me>
+Signed-off-by: Samuel Pascua <pascua.samuel.14@gmail.com>
 ---
  .../controller/SecOutDoorModePreferenceController.smali   | 8 +-------
  1 file changed, 1 insertion(+), 7 deletions(-)
 
 diff --git a/smali_classes4/com/samsung/android/settings/display/controller/SecOutDoorModePreferenceController.smali b/smali_classes4/com/samsung/android/settings/display/controller/SecOutDoorModePreferenceController.smali
-index a65c91f3..3e2f81d2 100644
+index ca1dc20a..efe23131 100644
 --- a/smali_classes4/com/samsung/android/settings/display/controller/SecOutDoorModePreferenceController.smali
 +++ b/smali_classes4/com/samsung/android/settings/display/controller/SecOutDoorModePreferenceController.smali
 @@ -61,13 +61,7 @@
@@ -24,10 +23,10 @@ index a65c91f3..3e2f81d2 100644
 -    move-result p0
 -
 -    xor-int/lit8 p0, p0, 0x1
-+    const/4 p0, 0x1
++   const/4 p0, 0x1
  
      return p0
  .end method
 -- 
-2.49.0
+2.50.1
 

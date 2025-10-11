@@ -1,15 +1,15 @@
-From 70d0b1cb228f6ca2a469f0ac176fea01d447e0de Mon Sep 17 00:00:00 2001
+From 07f9b86bb6f0b88367c00e45f73668dc1ab1b7b9 Mon Sep 17 00:00:00 2001
 From: BlackMesa123 <giangrecosalvo9@gmail.com>
-Date: Fri, 7 Jun 2024 08:15:21 +0200
+Date: Sat, 11 Oct 2025 10:39:24 +0800
 Subject: [PATCH] Show real device model number
 
-Signed-off-by: utkustnr <utkuustuner@proton.me>
+Signed-off-by: Samuel Pascua <pascua.samuel.14@gmail.com>
 ---
  .../settings/deviceinfo/aboutphone/ModelNameGetter.smali        | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/smali_classes4/com/samsung/android/settings/deviceinfo/aboutphone/ModelNameGetter.smali b/smali_classes4/com/samsung/android/settings/deviceinfo/aboutphone/ModelNameGetter.smali
-index 0ec61ab1..97832ce3 100644
+index 110ed4b0..9bf3ae7c 100644
 --- a/smali_classes4/com/samsung/android/settings/deviceinfo/aboutphone/ModelNameGetter.smali
 +++ b/smali_classes4/com/samsung/android/settings/deviceinfo/aboutphone/ModelNameGetter.smali
 @@ -48,7 +48,7 @@
@@ -22,5 +22,5 @@ index 0ec61ab1..97832ce3 100644
      invoke-static {v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
  
 -- 
-2.49.0
+2.50.1
 

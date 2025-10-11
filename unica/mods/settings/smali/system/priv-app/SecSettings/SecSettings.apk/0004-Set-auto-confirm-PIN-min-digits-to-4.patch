@@ -1,18 +1,18 @@
-From 4b8e0da10ded1455bcafcdd8be8fe08c64a59e14 Mon Sep 17 00:00:00 2001
+From e44b7be0cdb4495093200d653c9c1bc0e49f3c77 Mon Sep 17 00:00:00 2001
 From: BlackMesa123 <giangrecosalvo9@gmail.com>
-Date: Sun, 31 Dec 2023 15:20:09 +0100
+Date: Sat, 11 Oct 2025 10:44:10 +0800
 Subject: [PATCH] Set auto confirm PIN min digits to 4
 
-Signed-off-by: utkustnr <utkuustuner@proton.me>
+Signed-off-by: Samuel Pascua <pascua.samuel.14@gmail.com>
 ---
  .../ChooseLockPassword$ChooseLockPasswordFragment.smali     | 6 +++---
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/smali_classes2/com/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment.smali b/smali_classes2/com/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment.smali
-index 969cca44..694d841e 100644
---- a/smali_classes2/com/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment.smali
-+++ b/smali_classes2/com/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment.smali
-@@ -296,7 +296,7 @@
+diff --git a/smali/com/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment.smali b/smali/com/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment.smali
+index 44ad651e..9e51ea95 100644
+--- a/smali/com/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment.smali
++++ b/smali/com/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment.smali
+@@ -298,7 +298,7 @@
      move v1, v0
  
      :goto_0
@@ -21,15 +21,24 @@ index 969cca44..694d841e 100644
  
      const/4 v3, 0x1
  
-@@ -2314,7 +2314,7 @@
+@@ -1392,7 +1392,7 @@
+     :cond_0
+     iget v0, p0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment;->mPasswordMinLength:I
+ 
+-    const/4 v1, 0x6
++    const/4 v1, 0x4
+ 
+     if-lt v0, v1, :cond_1
+ 
+@@ -2309,7 +2309,7 @@
  
      move-result v2
  
 -    const/4 v4, 0x6
 +    const/4 v4, 0x4
  
-     if-lt v2, v4, :cond_14
+     if-lt v2, v4, :cond_13
  
 -- 
-2.49.0
+2.50.1
 
