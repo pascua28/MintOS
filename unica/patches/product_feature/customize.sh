@@ -373,10 +373,8 @@ if $SOURCE_IS_ESIM_SUPPORTED; then
     fi
 fi
 
-if [[ "$TARGET_CODENAME" == "a52sxq" ]] || [[ "$TARGET_CODENAME" == "a73xq" ]] || [[ "$TARGET_CODENAME" == "m52xq" ]]; then
-    APPLY_PATCH "system" "system/priv-app/SamsungDeviceHealthManagerService/SamsungDeviceHealthManagerService.apk" \
+APPLY_PATCH "system" "system/priv-app/SamsungDeviceHealthManagerService/SamsungDeviceHealthManagerService.apk" \
         "$SRC_DIR/unica/patches/product_feature/ssrm/SamsungDeviceHealthManagerService.apk/0001-Nuke-SSRM-Warning-dialog.patch"
-fi
 
 if [ ! -f "$FW_DIR/${MODEL}_${REGION}/vendor/etc/permissions/android.hardware.strongbox_keystore.xml" ]; then
     LOG_STEP_IN "- Applying strongbox patches"
