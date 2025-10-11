@@ -1,23 +1,26 @@
-From 8751eafe9aeafd08bc67356e4b934ad1c5572e67 Mon Sep 17 00:00:00 2001
+From ea0666264ddc7eb9a1c9d33e467d999d407af80e Mon Sep 17 00:00:00 2001
 From: tisenu100 <tisenu100@github.com>
-Date: Thu May 8 17:24:43 2025 +0300
+Date: Sat, 11 Oct 2025 09:50:23 +0800
 Subject: [PATCH] Enable real time network speed in status bar
 
+Signed-off-by: Samuel Pascua <pascua.samuel.14@gmail.com>
 ---
+ smali/com/android/systemui/BasicRune.smali | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/smali/com/android/systemui/BasicRune.smali b/smali/com/android/systemui/BasicRune.smali
-index 8bb0c234..bb91b0bf 100644
+index bf15a86c..6a80bcf0 100644
 --- a/smali/com/android/systemui/BasicRune.smali
 +++ b/smali/com/android/systemui/BasicRune.smali
-@@ -473,7 +473,7 @@
- 
-     sput-boolean v0, Lcom/android/systemui/BasicRune;->STATUS_NETWORK_WIFI_DISPLAY_AP_NAME:Z
+@@ -644,7 +644,7 @@
+     :goto_10
+     sput-boolean v0, Lcom/android/systemui/BasicRune;->STATUS_POP_OVER_PANEL_BAR:Z
  
 -    sget-boolean v0, Lcom/android/systemui/Rune;->SYSUI_CHINA_FEATURE:Z
 +    const/4 v0, 0x1
  
-     sput-boolean v0, Lcom/android/systemui/BasicRune;->STATUS_REAL_TIME_NETWORK_SPEED:Z
+     if-nez v0, :cond_15
  
 -- 
-2.46.0
+2.50.1
 

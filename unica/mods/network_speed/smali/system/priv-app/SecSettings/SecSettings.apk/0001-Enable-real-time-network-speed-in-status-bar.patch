@@ -1,60 +1,19 @@
-From 3c45f81603ecff1948c8ae86168e510335bb01a3 Mon Sep 17 00:00:00 2001
+From f3b1f2ff4162c777e244730c523b036684bd0c6c Mon Sep 17 00:00:00 2001
 From: tisenu100 <tisenu100@github.com>
-Date: Sat, 6 Sep 2025 18:40:49 +0800
+Date: Sat, 11 Oct 2025 09:43:18 +0800
 Subject: [PATCH] Enable real time network speed in status bar
 
+Signed-off-by: Samuel Pascua <pascua.samuel.14@gmail.com>
 ---
- .../provider/items/NotificationsItem.smali    | 24 ++-----------------
- .../ConfigureNotificationMoreSettings$1.smali | 14 ++---------
- .../StatusBarNetworkSpeedController.smali     | 14 ++---------
- 3 files changed, 6 insertions(+), 46 deletions(-)
+ .../ConfigureNotificationMoreSettings$1.smali | 14 ++------
+ .../StatusBarNetworkSpeedController.smali     | 14 ++------
+ .../provider/items/NotificationsItem.smali    | 32 ++-----------------
+ 3 files changed, 6 insertions(+), 54 deletions(-)
 
-diff --git a/smali_classes4/com/samsung/android/settings/eternal/provider/items/NotificationsItem.smali b/smali_classes4/com/samsung/android/settings/eternal/provider/items/NotificationsItem.smali
-index 106057a..9cfaafe 100644
---- a/smali_classes4/com/samsung/android/settings/eternal/provider/items/NotificationsItem.smali
-+++ b/smali_classes4/com/samsung/android/settings/eternal/provider/items/NotificationsItem.smali
-@@ -1442,17 +1442,7 @@
-     goto/16 :goto_20
- 
-     :pswitch_17
--    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
--
--    move-result-object v0
--
--    const-string v2, "CscFeature_Common_SupportZProjectFunctionInGlobal"
--
--    const/4 v3, 0x0
--
--    invoke-virtual {v0, v2, v3}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;Z)Z
--
--    move-result v0
-+    const/4 v0, 0x1
- 
-     if-eqz v0, :cond_1d
- 
-@@ -2652,17 +2642,7 @@
-     goto/16 :goto_3
- 
-     :pswitch_c
--    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
--
--    move-result-object v0
--
--    const-string v1, "CscFeature_Common_SupportZProjectFunctionInGlobal"
--
--    const/4 v2, 0x0
--
--    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;Z)Z
--
--    move-result v0
-+    const/4 v0, 0x1
- 
-     if-eqz v0, :cond_2
- 
-diff --git a/smali_classes4/com/samsung/android/settings/notification/ConfigureNotificationMoreSettings$1.smali b/smali_classes4/com/samsung/android/settings/notification/ConfigureNotificationMoreSettings$1.smali
-index a323f3d..9a5fe18 100644
---- a/smali_classes4/com/samsung/android/settings/notification/ConfigureNotificationMoreSettings$1.smali
-+++ b/smali_classes4/com/samsung/android/settings/notification/ConfigureNotificationMoreSettings$1.smali
+diff --git a/smali_classes3/com/samsung/android/settings/notification/ConfigureNotificationMoreSettings$1.smali b/smali_classes3/com/samsung/android/settings/notification/ConfigureNotificationMoreSettings$1.smali
+index 6892b961..2d0814d0 100644
+--- a/smali_classes3/com/samsung/android/settings/notification/ConfigureNotificationMoreSettings$1.smali
++++ b/smali_classes3/com/samsung/android/settings/notification/ConfigureNotificationMoreSettings$1.smali
 @@ -5,7 +5,7 @@
  
  # virtual methods
@@ -83,10 +42,10 @@ index a323f3d..9a5fe18 100644
  
      if-nez v0, :cond_2
  
-diff --git a/smali_classes4/com/samsung/android/settings/notification/StatusBarNetworkSpeedController.smali b/smali_classes4/com/samsung/android/settings/notification/StatusBarNetworkSpeedController.smali
-index 4b4712b..5dcf670 100644
---- a/smali_classes4/com/samsung/android/settings/notification/StatusBarNetworkSpeedController.smali
-+++ b/smali_classes4/com/samsung/android/settings/notification/StatusBarNetworkSpeedController.smali
+diff --git a/smali_classes3/com/samsung/android/settings/notification/StatusBarNetworkSpeedController.smali b/smali_classes3/com/samsung/android/settings/notification/StatusBarNetworkSpeedController.smali
+index 192fcd55..576ec5eb 100644
+--- a/smali_classes3/com/samsung/android/settings/notification/StatusBarNetworkSpeedController.smali
++++ b/smali_classes3/com/samsung/android/settings/notification/StatusBarNetworkSpeedController.smali
 @@ -22,19 +22,9 @@
  
  # direct methods
@@ -108,6 +67,56 @@ index 4b4712b..5dcf670 100644
 +    const/4 v0, 0x1
  
      sput-boolean v0, Lcom/samsung/android/settings/notification/StatusBarNetworkSpeedController;->SUPPORT_NETWORK_SPEED:Z
+ 
+diff --git a/smali_classes4/com/samsung/android/settings/eternal/provider/items/NotificationsItem.smali b/smali_classes4/com/samsung/android/settings/eternal/provider/items/NotificationsItem.smali
+index 967a240f..cfb47d8c 100644
+--- a/smali_classes4/com/samsung/android/settings/eternal/provider/items/NotificationsItem.smali
++++ b/smali_classes4/com/samsung/android/settings/eternal/provider/items/NotificationsItem.smali
+@@ -1395,25 +1395,7 @@
+     return-object v14
+ 
+     :pswitch_17
+-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+-
+-    move-result-object v0
+-
+-    const-string v2, "CscFeature_Common_SupportZProjectFunctionInGlobal"
+-
+-    const/4 v3, 0x0
+-
+-    invoke-virtual {v0, v2, v3}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;Z)Z
+-
+-    move-result v0
+-
+-    if-eqz v0, :cond_1d
+-
+-    const-string v0, "network_speed"
+-
+-    invoke-static {v15, v0, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+-
+-    move-result v0
++    const/4 v0, 0x1
+ 
+     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+@@ -2647,17 +2629,7 @@
+     goto/16 :goto_3
+ 
+     :pswitch_c
+-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+-
+-    move-result-object v0
+-
+-    const-string v1, "CscFeature_Common_SupportZProjectFunctionInGlobal"
+-
+-    const/4 v3, 0x0
+-
+-    invoke-virtual {v0, v1, v3}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;Z)Z
+-
+-    move-result v0
++    const/4 v0, 0x1
+ 
+     if-eqz v0, :cond_2
  
 -- 
 2.50.1
