@@ -119,7 +119,12 @@ if [[ "$(GET_FP_SENSOR_TYPE "$SOURCE_FP_SENSOR_CONFIG")" != "$(GET_FP_SENSOR_TYP
 
     if [[ "$TARGET_SINGLE_SYSTEM_IMAGE" == "qssi" ]]; then
         if [[ "$(GET_FP_SENSOR_TYPE "$TARGET_FP_SENSOR_CONFIG")" == "optical" ]]; then
+            ADD_TO_WORK_DIR "a36xqnaxx" "system" "system/bin/app_process64"
+            ADD_TO_WORK_DIR "a36xqnaxx" "system" "system/bin/bootanimation"
+            ADD_TO_WORK_DIR "a36xqnaxx" "system" "system/bin/mediaserver"
             ADD_TO_WORK_DIR "a36xqnaxx" "system" "system/bin/surfaceflinger"
+            ADD_TO_WORK_DIR "a36xqnaxx" "system" "system/lib64/libandroid_runtime.so"
+            ADD_TO_WORK_DIR "a36xqnaxx" "system" "system/lib64/libgui.so"
             ADD_TO_WORK_DIR "a36xqnaxx" "system" "system/lib64/libui.so"
             APPLY_PATCH "system" "system/framework/services.jar" "$SRC_DIR/unica/patches/product_feature/fingerprint/qssi/services.jar/0001-Set-FP_FEATURE_SENSOR_IS_ULTRASONIC-to-false.patch"
             APPLY_PATCH "system" "system/priv-app/BiometricSetting/BiometricSetting.apk" "$SRC_DIR/unica/patches/product_feature/fingerprint/qssi/BiometricSetting.apk/0001-Set-FP_FEATURE_SENSOR_IS_ULTRASONIC-to-false.patch"
