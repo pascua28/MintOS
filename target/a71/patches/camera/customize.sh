@@ -85,7 +85,6 @@ LOG_STEP_OUT
 
 LOG_STEP_IN "- Adding Stock polarr libs"
 ADD_TO_WORK_DIR "$TARGET_FIRMWARE" "system" "system/etc/public.libraries-polarr.txt" 0 0 644 "u:object_r:system_file:s0"
-LOG_STEP_OUT
 
 BLOBS_LIST="
 system/lib64/libBestComposition.polarr.so
@@ -93,6 +92,15 @@ system/lib64/libFeature.polarr.so
 system/lib64/libPolarrSnap.polarr.so
 system/lib64/libTracking.polarr.so
 system/lib64/libYuv.polarr.so
+"
+
+for blob in $BLOBS_LIST
+do
+    ADD_TO_WORK_DIR "$TARGET_FIRMWARE" "system" "$blob" 0 0 644 "u:object_r:system_lib_file:s0"
+done
+LOG_STEP_OUT
+
+BLOBS_LIST="
 system/lib64/libFace_Landmark_Engine.camera.samsung.so
 system/lib64/libFaceRestoration.camera.samsung.so
 system/lib64/libFacialStickerEngine.arcsoft.so
@@ -108,10 +116,12 @@ system/lib64/libsaiv_HprFace_cmh_support_jni.camera.samsung.so
 system/lib64/libsurfaceutil.camera.samsung.so
 system/lib64/libtensorflowLite.myfilter.camera.samsung.so
 system/lib64/libtensorflowlite_inference_api.myfilter.camera.samsung.so
+system/lib64/libMyFilter.camera.samsung.so
+system/lib64/libtflite2.myfilters.camera.samsung.so
 "
 for blob in $BLOBS_LIST
 do
-    ADD_TO_WORK_DIR "$TARGET_FIRMWARE" "system" "$blob" 0 0 644 "u:object_r:system_lib_file:s0"
+    ADD_TO_WORK_DIR "a73xqxx" "system" "$blob" 0 0 644 "u:object_r:system_lib_file:s0"
 done
 LOG_STEP_OUT
 
@@ -125,9 +135,4 @@ sed -i "s/MODEL_TYPE_INSTANCE_CAPTURE/MODEL_TYPE_OBJ_INSTANCE_CAPTURE/g" \
 sed -i \
     's/system\/cameradata\/portrait_data\/single_bokeh_feature.json/system\/cameradata\/portrait_data\/unica_bokeh_feature.json\x00/g' \
     "$WORK_DIR/system/system/lib64/libPortraitSolution.camera.samsung.so"
-LOG_STEP_OUT
-
-LOG_STEP_IN "- Fixing Studio Video Editor"
-ADD_TO_WORK_DIR "a36xqnaxx" "system" "system/lib64/libMyFilter.camera.samsung.so" 0 0 644 "u:object_r:system_file:s0"
-ADD_TO_WORK_DIR "a36xqnaxx" "system" "system/lib64/libtflite2.myfilters.camera.samsung.so" 0 0 644 "u:object_r:system_file:s0"
 LOG_STEP_OUT
