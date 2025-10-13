@@ -17,7 +17,6 @@ ADD_TO_WORK_DIR "a73xqxx" "vendor" "lib64/libdpps.so" 0 0 644 "u:object_r:vendor
 ADD_TO_WORK_DIR "a73xqxx" "vendor" "lib64/libdrm.so" 0 0 644 "u:object_r:vendor_configs_file:s0"
 ADD_TO_WORK_DIR "a73xqxx" "vendor" "lib64/libdrmutils.so" 0 0 644 "u:object_r:vendor_configs_file:s0"
 ADD_TO_WORK_DIR "a73xqxx" "vendor" "lib64/libgpu_tonemapper.so" 0 0 644 "u:object_r:vendor_configs_file:s0"
-ADD_TO_WORK_DIR "a73xqxx" "vendor" "lib64/libgrallocutils.so" 0 0 644 "u:object_r:vendor_configs_file:s0"
 ADD_TO_WORK_DIR "a73xqxx" "vendor" "lib64/libhdrdynamic.so" 0 0 644 "u:object_r:vendor_configs_file:s0"
 ADD_TO_WORK_DIR "a73xqxx" "vendor" "lib64/libhdrdynamicootf.so" 0 0 644 "u:object_r:vendor_configs_file:s0"
 ADD_TO_WORK_DIR "a73xqxx" "vendor" "lib64/libhistogram.so" 0 0 644 "u:object_r:vendor_configs_file:s0"
