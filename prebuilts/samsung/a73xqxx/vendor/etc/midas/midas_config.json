@@ -1,19 +1,24 @@
 {
-  "version": "3.1.1",
+  "version": "4.0.0",
+  "sr_text_mode_switch": true,
+  "sr_text_mode": "FULL",
+  "residual": 0.60,
+  "fr_threshold": 500,
+  "face_blend": 0.75,
   "device_types": "flagships, innovative",
   "description": "Configurations file for Midas PhotoRemaster IPs",
   "comment": "Midas Lite v100",
   "dnn_models_path": "/vendor/etc/midas/",
-  "device_property": "ro.product.device",
+  "device_property": "ro.soc.model",
   "chipset_property": "ril.modem.chipset",
   "midasSR_devices" : [
     "e1q", "e2q", "e3q", "SM-K758", "SM-K751", "SC-51E", "SC-52E", "SCG25", "SCG26",
-    "e1s", "e2s", "r12s", "SCG30",
+    "e1s", "e2s", "r12s", "SCG30", "b7r", "b7s",
     "q6q", "q6aq", "b6q", "v6q", "e6q", "SC-54E", "SC-55E", "SCG28", "SCG29",
     "gts10p", "gts10pwifi", "gts10u", "gts10uwifi",
-    "a55x", "SC-53E", "SCG27", "a56x",
+    "a55x", "SC-53E", "SCG27", "a56x", "a36x",
     "m53x", "a34x", "a35x", "m54x", "a53x", "a33x", "a73xq", "gts10fe", "gts10fep", "a54x", "m44x",
-    "gtact5pro", "gtact5prowifi",
+    "gtact5pro", "gtact5prowifi", "xcover7pro", "a25x",
     "p3q", "t2q", "o1q", "t2s", "p3s", "o1s", "r9s",
     "m33x", "SC-53C", "SCG15", "SM-A536D", "m34x",
     "dm1q", "dm2q", "dm3q",
@@ -29,10 +34,12 @@
     "q2q", "b2q", "v2q"
   ],
   "midasMoire950_devices":[
-	"pa1q", "pa2q", "pa3q",
+	  "pa1q", "pa2q", "pa3q", "psq",
+    "SC-51F", "SC-52F", "SCG31", "SCG32", "SM-K297", "SM-K375", "AKT", "ZJS",
     "e1q", "e2q", "e3q", "SM-K758", "SM-K751", "SC-51E", "SC-52E", "SCG25", "SCG26",
     "q6q", "q6aq", "b6q", "v6q", "e6q", "SC-54E", "SC-55E", "SCG28", "SCG29",
     "e1s", "e2s", "r12s", "SCG30",
+	  "q7q", "q7mq", "b7r", "b7s",
     "gts10p", "gts10pwifi", "gts10u", "gts10uwifi"
   ],
   "enhancements": [
@@ -55,10 +62,7 @@
                 "SRIBMidas_aiDEBLUR_V140_FP16_sm8650_qnn2143.tvm.so"
               ],
               "models_list": [
-                "e1q", "e2q", "e3q", "mu1q", "mu2q", "mu3q",
-                "SM-K758", "SM-K751", "SC-51E", "SC-52E", "SCG25", "SCG26",
-                "q6q", "q6aq", "b6q", "v6q", "e6q",
-                "SC-54E", "SC-55E", "SCG28", "SCG29"
+                "SM8650"
               ]
             }
           ],
@@ -77,7 +81,7 @@
                 "SRIBMidas_aiDEBLUR_V140_INT16_root_eden611.nnc"
               ],
               "models_list": [
-                "e1s", "e2s", "r12s", "SCG30"
+                "s5e9945"
               ]
             }
           ],
@@ -87,16 +91,18 @@
         },
         {
           "version": "140",
-          "input_node": ["input"],
-          "output_node": ["output"],
+          "input_node": ["input_layer"],
+          "output_node": ["output_layer"],
           "compatible_models": [
             {
-              "id": "2.2.4",
+              "id": "2.27.5",
               "model_file": [
-                "SRIBMidas_aiDEBLUR_V140_FP16_sm8750_snpe224.dlc"
+                "SRIBMidas_aiDEBLUR1_V380_sm8750_snpe227.dlc",
+                "SRIBMidas_aiDEBLUR2_V380_sm8750_snpe227.dlc",
+                "SRIBMidas_aiDEBLUR3_V380_sm8750_snpe227.dlc"
               ],
               "models_list": [
-                "pa1q", "pa2q", "pa3q"
+                "SM8750"
               ]
             }
           ],
@@ -115,11 +121,7 @@
                 "SRIBMidas_aiDEBLUR_V140_INT16_sm8550_snpe231.dlc"
               ],
               "models_list": [
-                "dm1q", "dm2q", "dm3q",
-                "SC-51D", "SC-52D", "SCG19", "SCG20", "SM-S911D", "SM-S918D", "SM-S911J", "SM-S918J", "SM-S911C", "SM-S918Q",
-                "SGH-N795", "SGH-N667", "BNS", "GSY", "SM-S911C",
-                "gts9", "gts9wifi", "gts9p", "gts9pwifi", "gts9u", "gts9uwifi",
-                "q5q", "b5q", "v5q", "e5q", "SC-54D", "SC-55D", "SCG22", "SCG23"
+                "SM8550"
               ]
             },
             {
@@ -128,11 +130,7 @@
                 "SRIBMidas_aiDEBLUR_V140_FP16_sm8450_snpe210.dlc"
               ],
               "models_list": [
-                "gts8", "gts8p", "gts8u", "gts8wifi", "gts8pwifi", "gts8uwifi",
-                "r0q", "g0q", "b0q", "r11q", "SCG24",
-                "SC-51C", "SC-52C", "SCG13", "SCG14", "SGH-N086", "SGH-N244", "KBZ", "MEY",
-                "q4q", "b4q", "e4q", "v4q",
-                "SC-54C", "SC-55C", "SCG17", "SCG16", "SM-F721C", "SM-F721D", "SM-F936D", "SM-F721J", "SM-F936J"
+                "SM8450"
               ]
             },
             {
@@ -187,7 +185,7 @@
                 "SRIBMidas_aiDEBLUR_V140_INT16_rose.nnc"
               ],
               "models_list": [
-                "a55x", "SC-53E", "SCG27"
+                "s5e8845", "s5e8855"
               ]
             }
           ],
@@ -206,7 +204,7 @@
                 "SRIBMidas_aiDEBLUR_V140_FP16_mtk02.dla"
               ],
               "models_list": [
-                "m53x", "a34x"
+                "MT6877V/ZA", "MT6877"
               ]
             },
             {
@@ -215,12 +213,32 @@
                 "SRIBMidas_aiDEBLUR_V140_FP16_mtk705.dla"
               ],
               "models_list": [
-                "gts10p", "gts10pwifi", "gts10u", "gts10uwifi"
+                "MT6989"
               ]
             }
           ],
           "compute_unit": "NPU",
           "model_format": "MNP",
+          "exec_type": "FLOAT16"
+        },
+        {
+          "version": "140",
+          "input_node": ["input.13"],
+          "output_node": ["116"],
+          "compatible_models": [
+            {
+            "id": "adreno,amd",
+            "model_file": [
+              "SRIBMidas_aiDEBLUR_V140_FP32.tflite",
+              "SRIBMidas_aiDEBLUR_V140_FP32.tflite"
+            ],
+            "models_list": [
+              "s5e9955"
+            ]
+          }
+          ],
+          "compute_unit": "GPU",
+          "model_format": "SNAPLITE",
           "exec_type": "FLOAT16"
         },
         {
@@ -262,12 +280,32 @@
               "SRIBMidas_aiHDR_V650_FP16_eden611.nnc"
             ],
             "models_list": [
-              "e1s", "e2s", "r12s", "SCG30"
+              "s5e9945"
             ]
           }
         ],
           "compute_unit": "NPU",
           "model_format": "EDEN",
+          "exec_type": "FLOAT16"
+        },
+        {
+          "version": "600",
+          "input_node": ["1"],
+          "output_node": ["final2.conv.0.layout_transform_0_0"],
+          "compatible_models": [
+            {
+            "id": "adreno,amd",
+            "model_file": [
+              "SRIBMidas_aiHDR_V600_FP16_sm8750_snpe231.dlc"
+            ],
+            "models_list": [
+              "SM8750"
+            ]
+          }
+        ],
+          "residual_value": 0.2,
+          "compute_unit": "DSP",
+          "model_format": "SNPE",
           "exec_type": "FLOAT16"
         },
         {
@@ -281,11 +319,7 @@
                 "SRIBMidas_aiHDR_V600_FP16_sm8550_snpe231.dlc"
               ],
               "models_list": [
-                "dm1q", "dm2q", "dm3q",
-                "SC-51D", "SC-52D", "SCG19", "SCG20", "SM-S911D", "SM-S918D", "SM-S911J", "SM-S918J", "SM-S911C", "SM-S918Q",
-                "SGH-N795", "SGH-N667", "BNS", "GSY", "SM-S911C",
-                "gts9", "gts9wifi", "gts9p", "gts9pwifi", "gts9u", "gts9uwifi",
-                "q5q", "b5q", "v5q", "e5q", "SC-54D", "SC-55D", "SCG22", "SCG23"
+                "SM8550"
               ]
             },
             {
@@ -295,7 +329,7 @@
                 "SRIBMidas_aiHDR_Local_INT16_V430_sm7325_snpe1502.dlc"
               ],
               "models_list": [
-                "a73xq", "a52sxq", "m52xq", "gts7fewifi", "xcoverpro2", "gtact4pro", "gtact4prowifi"
+                "SM7325"
               ]
             }
           ],
@@ -315,8 +349,7 @@
                 "SRIBMidas_aiHDR_Local_INT16_V430_1024_olympus_eden167.nnc"
               ],
               "models_list": [
-                "t2s", "p3s", "o1s", "r9s",
-                "a33x", "a53x", "m33x", "SC-53C", "SCG15", "SM-A536D", "m34x"
+                "Exynos 2100", "s5e8825"
               ]
             },
             {
@@ -326,7 +359,7 @@
                 "SRIBMidas_aiHDR_Local_INT16_V430_1024_parmir_eden411.nnc"
               ],
               "models_list": [
-                "r0s", "g0s", "b0s", "r11s"
+                "s5e9925"
               ]
             }
           ],
@@ -346,7 +379,7 @@
                 "SRIBMidas_aiHDR_Local_V430_1024_FP16_mtk02.dla"
               ],
               "models_list": [
-                "m53x", "a34x"
+                "MT6877V/ZA", "MT6877"
               ]
             }
           ],
@@ -355,15 +388,33 @@
           "exec_type": "FLOAT16"
         },
         {
+          "version": "LSI",
+          "input_node": ["serving_default_input:0"],
+          "output_node": ["StatefulPartitionedCall:0"],
+          "compatible_models": [
+            {
+              "id": "adreno,amd",
+              "model_file": [
+                "SRIBMidas_aiHDR_FP32_V600.tflite"
+              ],
+              "models_list": [
+                "s5e9955"
+              ]
+            }
+          ],
+          "compute_unit": "GPU",
+          "model_format": "SNAPLITE",
+          "exec_type": "FLOAT16"
+        },
+        {
           "version": "default",
-          "input_node": ["input","input"],
-          "output_node": ["output","output"],
+          "input_node": ["input"],
+          "output_node": ["output"],
           "compatible_models": [
             {
             "id": "adreno,amd",
             "model_file": [
-              "SRIB_aiHDR_Global_V430_1024.caffemodel",
-              "SRIB_aiHDR_Local_V430_1024.caffemodel"
+              "SRIBMidas_aiHDR_V600_FP32.caffemodel"
             ],
             "models_list": [
             ]
@@ -395,13 +446,29 @@
                 "SRIBMidas_aiCAMERADEMOIRE_Fine_V100_FP16_sm8550_snpe231.dlc"
               ],
               "models_list": [
-                "dm1q", "dm2q", "dm3q",
-                "SC-51D", "SC-52D", "SCG19", "SCG20", "SM-S911D", "SM-S918D", "SM-S911J", "SM-S918J", "SM-S911C", "SM-S918Q",
-                "SGH-N795", "SGH-N667", "BNS", "GSY", "SM-S911C",
-                "gts9", "gts9wifi", "gts9p", "gts9pwifi", "gts9u", "gts9uwifi",
-                "q5q", "b5q", "v5q", "e5q", "SC-54D", "SC-55D", "SCG22", "SCG23"
+                "SM8550"
               ]
             }
+        ],
+          "compute_unit": "DSP",
+          "model_format": "SNPE",
+          "exec_type": "FLOAT16"
+        },
+        {
+          "version": "100",
+          "input_node": ["input","input"],
+          "output_node": ["output","output"],
+          "compatible_models": [
+            {
+            "id": "snpe241",
+            "model_file": [
+              "aiCAMERA_DEMOIRE_Coarse_V100_FP16_sm8750_snpe241.dlc",
+              "aiCAMERA_DEMOIRE_Fine_V100_FP16_sm8750_snpe241.dlc"
+            ],
+            "models_list": [
+				      "SM8750"
+            ]
+          }
         ],
           "compute_unit": "DSP",
           "model_format": "SNPE",
@@ -451,7 +518,7 @@
                 "SRIBMidas_aiMOIREREMOVE_Comb_V950_FP16_sm8750_snpe224.dlc"
               ],
               "models_list": [
-			          "pa1q", "pa2q", "pa3q"
+			          "SM8750"
               ]
             }
           ],
@@ -474,10 +541,7 @@
                 "SRIBMidas_aiMOIREREMOVE_Comb_V950_FP16_sm8650_qnn2143.tvm.so"
               ],
               "models_list": [
-                "e1q", "e2q", "e3q", "mu1q", "mu2q", "mu3q",
-                "SM-K758", "SM-K751", "SC-51E", "SC-52E", "SCG25", "SCG26",
-                "q6q", "q6aq", "b6q", "v6q", "e6q",
-                "SC-54E", "SC-55E", "SCG28", "SCG29"
+                "SM8650"
               ]
             }
           ],
@@ -500,7 +564,7 @@
                 "SRIBMidas_aiMOIREREMOVE_Comb_V950_FP16_root_eden611.nnc"
               ],
               "models_list": [
-                "e1s", "e2s", "r12s", "SCG30"
+                "s5e9945"
               ]
             }
           ],
@@ -523,7 +587,7 @@
                 "SRIBMidas_aiMOIREREMOVE_Comb_V950_mtk705.dla"
               ],
               "models_list": [
-                "gts10p", "gts10p", "gts10u", "gts10uwifi"
+                "MT6989"
               ]
             }
           ],
@@ -543,11 +607,7 @@
                 "SRIBMidas_aiMOIREREMOVE_Fine_V900_FP16_sm8550_snpe231.dlc"
               ],
               "models_list": [
-                "dm1q", "dm2q", "dm3q",
-                "SC-51D", "SC-52D", "SCG19", "SCG20", "SM-S911D", "SM-S918D", "SM-S911J", "SM-S918J", "SM-S911C", "SM-S918Q",
-                "SGH-N795", "SGH-N667", "BNS", "GSY", "SM-S911C",
-                "gts9", "gts9wifi", "gts9p", "gts9pwifi", "gts9u", "gts9uwifi",
-                "q5q", "b5q", "v5q", "e5q", "SC-54D", "SC-55D", "SCG22", "SCG23"
+                "SM8550"
               ]
             },
             {
@@ -557,11 +617,7 @@
               "SRIBMidas_aiMOIREREMOVE_Fine_V900_FP16_sm8450_snpe210.dlc"
             ],
             "models_list": [              
-              "r0q", "g0q", "b0q", "r11q", "SCG24",
-              "gts8", "gts8p", "gts8u", "gts8wifi", "gts8pwifi", "gts8uwifi",
-              "SC-51C", "SC-52C", "SCG13", "SCG14", "SGH-N086", "SGH-N244", "KBZ", "MEY",
-              "q4q", "b4q", "e4q", "v4q",
-              "SC-54C", "SC-55C", "SCG17", "SCG16", "SM-F721C", "SM-F721D", "SM-F936D", "SM-F721J", "SM-F936J"
+              "SM8450"
             ]
           }
         ],
@@ -581,7 +637,7 @@
                 "SRIBMidas_aiMOIREREMOVE_Fine_V900_FP16_mtk02.dla"
               ],
               "models_list": [
-                "m53x", "a34x"
+                "MT6877V/ZA", "MT6877"
               ]
             }
           ],
@@ -601,7 +657,7 @@
                 "SRIBMidas_aiMOIREREMOVE_Fine_V900_INT16_rose.nnc"
               ],
               "models_list": [
-                "a55x", "SC-53E", "SCG27"
+                "s5e8845", "s5e8855"
               ]
             },
             {
@@ -611,13 +667,36 @@
                 "SRIBMidas_aiMOIREREMOVE_Fine_V900_FP16_pamir_eden411.nnc"
               ],
               "models_list": [
-                "r0s", "g0s", "b0s", "r11s"
+                "s5e9925"
               ]
             }
           ],
           "compute_unit": "NPU",
           "model_format": "EDEN",
           "exec_type": "QASYMM16"
+        },
+        {
+          "version": "LSI",
+          "input_node": ["x.1","x_w.1","x.1","x_w.1","x.1"],
+          "output_node": ["908","1092","907","1105","77"],
+          "compatible_models": [
+            {
+              "id": "adreno,amd",
+              "model_file": [
+                "SRIBMidas_aiMOIREREMOVE_Coarse_V950.tflite",
+                "SRIBMidas_aiMOIREREMOVE_Fine_V950.tflite",
+                "SRIBMidas_aiMOIREREMOVE_Coarse2_V950.tflite",
+                "SRIBMidas_aiMOIREREMOVE_Fine2_V950.tflite",
+                "SRIBMidas_aiMOIREREMOVE_Comb_V950.tflite"
+              ],
+              "models_list": [
+                "s5e9955"
+              ]
+            }
+          ],
+          "compute_unit": "GPU",
+          "model_format": "SNAPLITE",
+          "exec_type": "FLOAT16"
         },
         {
           "version": "default",
@@ -659,10 +738,7 @@
                 "SRIBMidas_aiCLARITY_2X_V200_FP16_sm8650_qnn2143.tvm.so"
               ],
               "models_list": [
-                "e1q", "e2q", "e3q", "mu1q", "mu2q", "mu3q",
-                "SM-K758", "SM-K751", "SC-51E", "SC-52E", "SCG25", "SCG26",
-                "q6q", "q6aq", "b6q", "v6q", "e6q",
-                "SC-54E", "SC-55E", "SCG28", "SCG29"
+                "SM8650"
               ]
             }
           ],
@@ -678,23 +754,30 @@
             {
               "id": "snpe224",
               "model_file": [
-                "SRIBMidas_aiCLARITY2.0_2X_V200_FP16_sm8750_snpe224.dlc"
+                "SRIBMidas_aiCLARITY_2X_V260_INT16_sm8750_snpe227.dlc"
               ],
               "models_list": [
-                "pa1q", "pa2q", "pa3q"
+                "SM8750"
               ]
-            },
+            }
+          ],
+          "residual_value": 0.7,
+          "compute_unit": "DSP",
+          "model_format": "SNPE",
+          "exec_type": "QASYMM16"
+        },
+        {
+          "version": "200",
+          "input_node": ["input"],
+          "output_node": ["output"],
+          "compatible_models": [
             {
               "id": "2.3.1",
               "model_file": [
                 "SRIBMidas_aiCLARITY2.0_2X_V200_FP16_sm8550_snpe231.dlc"
               ],
               "models_list": [
-                "dm1q", "dm2q", "dm3q",
-                "SC-51D", "SC-52D", "SCG19", "SCG20", "SM-S911D", "SM-S918D", "SM-S911J", "SM-S918J", "SM-S911C", "SM-S918Q",
-                "SGH-N795", "SGH-N667", "BNS", "GSY", "SM-S911C",
-                "gts9", "gts9wifi", "gts9p", "gts9pwifi", "gts9u", "gts9uwifi",
-                "q5q", "b5q", "v5q", "e5q", "SC-54D", "SC-55D", "SCG22", "SCG23"
+                "SM8550"
               ]
             },
             {
@@ -703,11 +786,7 @@
                 "SRIBMidas_aiCLARITY2.0_2X_V200_FP16_sm8450_snpe210.dlc"
               ],
               "models_list": [
-                "r0q", "g0q", "b0q", "r11q", "SCG24",
-                "gts8", "gts8p", "gts8u", "gts8wifi", "gts8pwifi", "gts8uwifi",
-                "SC-51C", "SC-52C", "SCG13", "SCG14", "SGH-N086", "SGH-N244", "KBZ", "MEY",
-                "q4q", "b4q", "e4q", "v4q",
-                "SC-54C", "SC-55C", "SCG17", "SCG16", "SM-F721C", "SM-F721D", "SM-F936D", "SM-F721J", "SM-F936J"
+                "SM8450"
               ]
             }
           ],
@@ -726,7 +805,7 @@
                 "SRIBMidas_aiCLARITY_2X_V200_FP16_eden511.nnc"
               ],
               "models_list": [
-                "e1s", "e2s", "r12s", "SCG30"
+                "s5e9945"
               ]
             },
             {
@@ -735,7 +814,7 @@
                 "SRIBMidas_aiCLARITY_2X_V200_INT16_rose.nnc"
               ],
               "models_list": [
-                "a55x", "SC-53E", "SCG27"
+                "s5e8845", "s5e8855"
               ]
             },
             {
@@ -744,7 +823,7 @@
                 "SRIBMidas_aiCLARITY_2X_V200_FP16_pamir_eden411.nnc"
               ],
               "models_list": [
-                "r0s", "g0s", "b0s", "r11s"
+                "s5e9925"
               ]
             }
           ],
@@ -763,7 +842,7 @@
                 "SRIBMidas_aiCLARITY2.0_2X_V200_mtk02.dla"
               ],
               "models_list": [
-                "m53x", "a34x"
+                "MT6877V/ZA", "MT6877"
               ]
             },
             {
@@ -772,12 +851,31 @@
                 "SRIBMidas_aiCLARITY2.0_2X_V200_mtk705.dla"
               ],
               "models_list": [
-                "gts10p", "gts10pwifi", "gts10u", "gts10uwifi"
+                "MT6989"
               ]
             }
           ],
           "compute_unit": "NPU",
           "model_format": "MNP",
+          "exec_type": "FLOAT16"
+        },
+        {
+          "version": "LSI",
+          "input_node": ["x.1"],
+          "output_node": ["1938"],
+          "compatible_models": [
+            {
+              "id": "adreno,amd",
+              "model_file": [
+                "SRIBMidas_aiCLARITY_2X_V200.tflite"
+              ],
+              "models_list": [
+			          "s5e9955"
+              ]
+            }
+          ],
+          "compute_unit": "GPU",
+          "model_format": "SNAPLITE",
           "exec_type": "FLOAT16"
         },
         {
@@ -822,7 +920,7 @@
                 "SRIBMidas_aiUPSCALER_4X_V210_FP16_root_eden611.nnc"
               ],
               "models_list": [
-                "e1s", "e2s", "r12s", "SCG30"
+                "s5e9945"
               ]
             },
             {
@@ -834,13 +932,36 @@
                 "SRIBMidas_aiUPSCALER_4X_V210_FP16_rose.nnc"
               ],
               "models_list": [
-                "a55x", "SC-53E", "SCG27"
+                "s5e8845", "s5e8855"
               ]
             }
           ],
           "residual_value": 0.7,
           "compute_unit": "NPU",
           "model_format": "EDEN",
+          "exec_type": "FLOAT16"
+        },
+        {
+          "version": "270",
+          "input_node": ["input","input","input","input"],
+          "output_node": ["output","output","output","output"],
+          "compatible_models": [
+            {
+              "id": "lite",
+              "model_file": [
+                "SRIBMidas_aiUPSCALER_1X_V270_FP16_sm8750_snpe227.dlc",
+                "SRIBMidas_aiUPSCALER_2X_V270_FP16_sm8750_snpe227.dlc",
+                "SRIBMidas_aiUPSCALER_3X_V270_FP16_sm8750_snpe227.dlc",
+                "SRIBMidas_aiUPSCALER_4X_V270_FP16_sm8750_snpe227.dlc"
+              ],
+              "models_list": [
+                "SM8750"
+              ]
+            }
+          ],
+          "residual_value": 0.7,
+          "compute_unit": "DSP",
+          "model_format": "SNPE",
           "exec_type": "FLOAT16"
         },
         {
@@ -857,7 +978,7 @@
                 "SRIBMidas_aiUPSCALER_4X_V270_FP16_pamir_eden681.nnc"
               ],
               "models_list": [
-                "r0s", "g0s", "b0s", "r11s"
+                "s5e9925"
               ]
             }
           ],
@@ -880,11 +1001,7 @@
                 "SRIBMidas_aiUPSCALER_4X_LITE_V100_FP16_sm8550_snpe210.dlc"
               ],
               "models_list": [
-                "dm1q", "dm2q", "dm3q",
-                "SC-51D", "SC-52D", "SCG19", "SCG20",
-                "SGH-N795", "SGH-N667", "BNS", "GSY", "SM-S911C",
-                "gts9", "gts9wifi", "gts9p", "gts9pwifi", "gts9u", "gts9uwifi",
-                "q5q", "b5q", "v5q", "e5q", "SC-54D", "SC-55D", "SCG22", "SCG23"
+                "SM8550"
               ]
             },
             {
@@ -896,23 +1013,7 @@
                 "SRIBMidas_aiUPSCALER_4X_LITE_V100_FP16_sm8450_snpe210.dlc"
               ],
               "models_list": [
-                "r0q", "g0q", "b0q", "r11q", "SCG24",
-                "gts8", "gts8p", "gts8u", "gts8wifi", "gts8pwifi", "gts8uwifi",
-                "SC-51C", "SC-52C", "SCG13", "SCG14", "SGH-N086", "SGH-N244", "KBZ", "MEY",
-                "q4q", "b4q", "e4q", "v4q",
-                "SC-54C", "SC-55C", "SCG17", "SCG16"
-              ]
-            },
-            {
-              "id": "2.24.0",
-              "model_file": [
-                "SRIBMidas_aiUPSCALER_1X_V270_FP16_sm8750_snpe224.dlc",
-                "SRIBMidas_aiUPSCALER_2X_LITE_V100_FP16_sm8750_snpe224.dlc",
-                "SRIBMidas_aiUPSCALER_3X_LITE_V100_FP16_sm8750_snpe224.dlc",
-                "SRIBMidas_aiUPSCALER_4X_LITE_V100_FP16_sm8750_snpe224.dlc"
-              ],
-              "models_list": [
-                "pa1q", "pa2q", "pa3q"
+                "SM8450"
               ]
             },
             {
@@ -924,10 +1025,7 @@
                 "SRIBMidas_aiUPSCALER_4X_LITE_V100_FP16_sm8650_snpe223.dlc"
               ],
               "models_list": [
-                "e1q", "e2q", "e3q", "mu1q", "mu2q", "mu3q",
-                "SM-K758", "SM-K751", "SC-51E", "SC-52E", "SCG25", "SCG26",
-                "q6q", "q6aq", "b6q", "v6q", "e6q",
-                "SC-54E", "SC-55E", "SCG28", "SCG29"
+                "SM8650"
               ]
             }
           ],
@@ -950,7 +1048,7 @@
                 "SRIBMidas_aiUPSCALER_4X_V210_FP16_mtk02.dla"
               ],
               "models_list": [
-                "m53x", "a34x"
+                "MT6877V/ZA", "MT6877"
               ]
             },
             {
@@ -962,7 +1060,7 @@
                 "SRIBMidas_aiUPSCALER_4X_V210_FP16_mtk705.dla"
               ],
               "models_list": [
-                "gts10p", "gts10pwifi", "gts10u", "gts10uwifi"
+                "MT6989"
               ]
             }
           ],
@@ -970,6 +1068,30 @@
           "compute_unit": "NPU",
           "model_format": "MNP",
           "exec_type": "FLOAT16"
+        },
+        {
+          "version": "LSI",
+          "input_node": ["x.1","x.1","x.1","x.1"],
+          "output_node": ["1938","451","456","451"],
+          "compatible_models": [
+            {
+              "id": "adreno,amd",
+              "model_file": [
+                "SRIBMidas_aiUPSCALER_1X_LITE_V100_INT8.tflite",
+                "SRIBMidas_aiUPSCALER_2X_LITE_V100_INT8.tflite",
+                "SRIBMidas_aiUPSCALER_3X_LITE_V100_INT8.tflite",
+                "SRIBMidas_aiUPSCALER_4X_LITE_V100_INT8.tflite"
+                
+              ],
+              "models_list": [
+			          "s5e9955"
+              ]
+            }
+          ],
+          "residual_value": 0.7,
+          "compute_unit": "GPU",
+          "model_format": "SNAPLITE",
+          "exec_type": "QASYMM8"
         },
         {
           "version": "default",
@@ -1010,6 +1132,18 @@
           "output_node": ["output","output","output","output"],
           "compatible_models": [
             {
+              "id": "snpe224",
+              "model_file": [
+                "SRIBMidas_aiUPSCALER_1X_PRO_V110_sm8750_snpe227.dlc",
+                "SRIBMidas_aiUPSCALER_2X_PRO_V110_sm8750_snpe227.dlc",
+                "SRIBMidas_aiUPSCALER_3X_PRO_V110_sm8750_snpe227.dlc",
+                "SRIBMidas_aiUPSCALER_4X_PRO_V110_sm8750_snpe227.dlc"
+              ],
+              "models_list": [
+                "SM8750"
+              ]
+            },
+            {
               "id": "snpe220",
               "model_file": [
                 "SRIBMidas_aiUPSCALER_1X_PRO_V100_INT16_sm8650_snpe216.dlc",
@@ -1018,11 +1152,89 @@
                 "SRIBMidas_aiUPSCALER_4X_PRO_V100_INT16_sm8650_snpe216.dlc"
               ],
               "models_list": [
-                "q6q", "q6aq", "b6q", "v6q", "e6q",
-                "SC-54E", "SC-55E", "SCG28", "SCG29"
+                "SM8650"
               ]
             }
           ],
+		      "residual_value": 0.7,
+          "compute_unit": "DSP",
+          "model_format": "SNPE",
+          "exec_type": "FLOAT16"
+        },
+        {
+          "version": "100_NAS",
+          "input_node": ["x.1","input.7","input.7","input.7"],
+          "output_node": ["1938","2073","2078","2073"],
+          "compatible_models": [
+            {
+              "id": "adreno,amd",
+              "model_file": [
+                "SRIBMidas_MidasPro_V100_1X.tflite",
+                "SRIBMidas_MidasPro_V100_2X.tflite",
+                "SRIBMidas_MidasPro_V100_3X.tflite",
+                "SRIBMidas_MidasPro_V100_4X.tflite"    
+              ],
+              "models_list": [
+                "s5e9955"
+              ]
+            }
+          ],
+          "residual_value": 0.7,
+          "compute_unit": "GPU",
+          "model_format": "SNAPLITE",
+          "exec_type": "QASYMM8"
+        },	
+        {
+          "version": "default",
+          "input_node": ["x.1","input.7","input.7","input.7"],
+          "output_node": ["1938","2073","2078","2073"],
+          "compatible_models": [
+            {
+              "id": "adreno,amd",
+              "model_file": [
+                "SRIBMidas_MidasPro_V100_1X.tflite",
+                "SRIBMidas_MidasPro_V100_2X.tflite",
+                "SRIBMidas_MidasPro_V100_3X.tflite",
+                "SRIBMidas_MidasPro_V100_4X.tflite" 
+                
+              ],
+              "models_list": [
+              ]
+            }
+          ],
+          "residual_value": 0.7,
+          "compute_unit": "GPU",
+          "model_format": "SNAPLITE",
+          "exec_type": "QASYMM8"
+        }
+      ]
+    },
+    {
+      "type": "upscale-ultra",
+      "inference_dim": [
+        512,
+        512
+      ],
+      "nChannel": 3,      
+      "dnn_model_info": [
+        {
+          "version": "ultra",
+          "input_node": ["input","input","input"],
+          "output_node": ["output","output","output"],
+          "compatible_models": [
+            {
+              "id": "snpe225",
+              "model_file": [
+                "SRIBMidas_aiUPSCALER_4X_ULTRA_ENC_V460_sm8750_snpe227.dlc",
+                "SRIBMidas_aiUPSCALER_4X_ULTRA_UNET_V460_sm8750_snpe227.dlc",
+                "SRIBMidas_aiUPSCALER_4X_ULTRA_DEC_V460_sm8750_snpe227.dlc"
+              ],
+              "models_list": [
+                "SM8750"
+              ]
+            }
+          ],
+          "residual_value": 0.65,
           "compute_unit": "DSP",
           "model_format": "SNPE",
           "exec_type": "QASYMM16"
@@ -1049,20 +1261,17 @@
                 "SRIBMidas_aiFACESEMANTICS_V200_FP16_sm8550_snpe210.dlc"
               ],
               "models_list": [
-                "dm1q", "dm2q", "dm3q", "q5q", "b5q",
-                "SC-51D", "SC-52D", "SCG19", "SCG20", "SM-S911D", "SM-S918D", "SM-S911J", "SM-S918J", "SM-S911C", "SM-S918Q",
-                "SGH-N795", "SGH-N667", "BNS", "GSY", "SM-S911C",
-                "gts9", "gts9wifi", "gts9p", "gts9pwifi", "gts9u", "gts9uwifi"
+                "SM8550"
               ]
             },
             {
               "id": "2.2.4",
               "model_file": [
-                "SRIBMidas_aiFACERESTORE_V200_FP16_sm8750_snpe224.dlc",
-                "SRIBMidas_aiFACESEMANTICS_V200_FP16_sm8750_snpe224.dlc"
+                "SRIBMidas_aiFACERESTORE_V200_FP16_sm8750_snpe227.dlc",
+                "SRIBMidas_aiFACESEMANTICS_V200_FP16_sm8750_snpe227.dlc"
               ],
               "models_list": [
-               "pa1q", "pa2q", "pa3q"
+               "SM8750"
               ]
             }
         ],
@@ -1083,10 +1292,7 @@
                 
               ],
               "models_list": [
-                "e1q", "e2q", "e3q", "mu1q", "mu2q", "mu3q",
-                "SM-K758", "SM-K751", "SC-51E", "SC-52E", "SCG25", "SCG26",
-                "q6q", "q6aq", "b6q", "v6q", "e6q",
-                "SC-54E", "SC-55E", "SCG28", "SCG29"
+                "SM8650"
               ]
             }
         ],
@@ -1107,7 +1313,7 @@
                 
               ],
               "models_list": [
-                "e1s", "e2s", "r12s", "SCG30"
+                "s5e9945"
               ]
             }
           ],
@@ -1128,7 +1334,7 @@
                 
               ],
               "models_list": [
-                "gts10p", "gts10pwifi", "gts10u", "gts10uwifi"
+                "MT6989"
               ]
             }
           ],
@@ -1267,8 +1473,16 @@
                 "SRIBMQA_aiFiQA_V200_FP32_snpe2170.dlc"
               ],
               "models_list": [
-                "q6q", "q6aq", "b6q", "v6q", "e6q",
-                "SC-54E", "SC-55E", "SCG28", "SCG29"
+                "SM8650"
+              ]
+            },
+            { 
+              "id": "snpe224",
+              "model_file": [
+                "SRIBMQA_aiFiQA_V200_FP16_sm8750_snpe227.dlc"
+              ],
+              "models_list": [
+                "SM8750"
               ]
             }
           ],

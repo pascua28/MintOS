@@ -5,4 +5,4 @@ service vendor.qti.hardware.display.composer /vendor/bin/hw/vendor.qti.hardware.
     capabilities SYS_NICE
     onrestart restart surfaceflinger
     socket pps stream 0660 system system
-    writepid /dev/cpuset/sf/tasks
+    writepid /dev/cpuset/system-background/tasks
