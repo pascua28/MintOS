@@ -76,17 +76,11 @@ ADD_TO_WORK_DIR "a73xqxx" "system" "system/lib64/libtensorflowlite_inference_api
 ADD_TO_WORK_DIR "a73xqxx" "system" "system/priv-app/PhotoRemasterService/PhotoRemasterService.apk"
 LOG_STEP_OUT
 
-LOG_STEP_IN "- Add stock audio libs"
-DELETE_FROM_WORK_DIR "system" "system/lib/libcallaudio.so"
-DELETE_FROM_WORK_DIR "system" "system/lib64/libcallaudio.so"
-DELETE_FROM_WORK_DIR "system" "system/lib64/libsecaudiomonomix.so"
-ADD_TO_WORK_DIR "a52qnsxx" "system" "system/lib/libaudiopolicymanagerdefault.so" 0 0 644 "u:object_r:system_lib_file:s0"
-ADD_TO_WORK_DIR "a52qnsxx" "system" "system/lib/libwificallaudio.so" 0 0 644 "u:object_r:system_lib_file:s0"
-ADD_TO_WORK_DIR "a52qnsxx" "system" "system/lib64/libaudioflinger.so" 0 0 644 "u:object_r:system_lib_file:s0"
-ADD_TO_WORK_DIR "a52qnsxx" "system" "system/lib64/libaudiopolicymanagerdefault.so" 0 0 644 "u:object_r:system_lib_file:s0"
-ADD_TO_WORK_DIR "a52qnsxx" "system" "system/lib64/libaudiopolicyservice.so" 0 0 644 "u:object_r:system_lib_file:s0"
-ADD_TO_WORK_DIR "a52qnsxx" "system" "system/lib64/libcorefx.so" 0 0 644 "u:object_r:system_lib_file:s0"
-ADD_TO_WORK_DIR "a52qnsxx" "system" "system/lib64/libwificallaudio.so" 0 0 644 "u:object_r:system_lib_file:s0"
+LOG_STEP_IN "- Fixing Google Assistant"
+DELETE_FROM_WORK_DIR "product" "priv-app/HotwordEnrollmentOKGoogleEx4HEXAGON"
+DELETE_FROM_WORK_DIR "product" "priv-app/HotwordEnrollmentXGoogleEx4HEXAGON"
+ADD_TO_WORK_DIR "a73xqxx" "product" "priv-app/HotwordEnrollmentOKGoogleEx3HEXAGON"
+ADD_TO_WORK_DIR "a73xqxx" "product" "priv-app/HotwordEnrollmentXGoogleEx3HEXAGON"
 LOG_STEP_OUT
 
 LOG_STEP_IN "- Adding tlc dependencies"
@@ -123,4 +117,12 @@ echo "/system/lib/vendor\.qti\.hardware\.trustedui@1\.2\.so u:object_r:system_li
 echo "/system/lib64/vendor\.qti\.hardware\.trustedui@1\.0\.so u:object_r:system_lib_file:s0" >> "$WORK_DIR/configs/file_context-system"
 echo "/system/lib64/vendor\.qti\.hardware\.trustedui@1\.1\.so u:object_r:system_lib_file:s0" >> "$WORK_DIR/configs/file_context-system"
 echo "/system/lib64/vendor\.qti\.hardware\.trustedui@1\.2\.so u:object_r:system_lib_file:s0" >> "$WORK_DIR/configs/file_context-system"
+LOG_STEP_OUT
+
+LOG_STEP_IN "- Adding pa1qxxx nfc blobs"
+DELETE_FROM_WORK_DIR "system" "system/lib64/libnfc_nxpsn_jni.so"
+ADD_TO_WORK_DIR "pa1qxxx" "system" "system/lib64/libnfc_sec_jni.so"
+ADD_TO_WORK_DIR "pa1qxxx" "system" "system/lib64/libnfc-nci_flags.so"
+ADD_TO_WORK_DIR "pa1qxxx" "system" "system/lib64/libnfc-sec.so"
+ADD_TO_WORK_DIR "pa1qxxx" "system" "system/lib64/libstatslog_nfc.so"
 LOG_STEP_OUT
