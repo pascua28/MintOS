@@ -76,7 +76,6 @@ framework/com.qti.location.sdk.jar
 framework/org.carconnectivity.android.digitalkey.rangingintent.jar
 framework/org.carconnectivity.android.digitalkey.secureelement.jar
 lib/libqcc.so
-lib/libqcc_file_agent_sys.so
 lib/libqccdme.so
 lib/libqccfileservice.so
 lib/vendor.qti.hardware.qccsyshal@1.0.so
@@ -87,7 +86,6 @@ lib/vendor.qti.hardware.trustedui@1.1.so
 lib/vendor.qti.hardware.trustedui@1.2.so
 lib/vendor.qti.qccvndhal_aidl-V1-ndk.so
 lib64/libqcc.so
-lib64/libqcc_file_agent_sys.so
 lib64/libqccdme.so
 lib64/libqccfileservice.so
 lib64/vendor.qti.hardware.qccsyshal@1.0.so
